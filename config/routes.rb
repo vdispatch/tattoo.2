@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :placements
+
   resources :user_badges
 
   resources :projects
