@@ -1,69 +1,48 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Studio -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Studio %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @studio.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @studio.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:address) %></dt>
+      <dd><pre class="prettyprint"><%= @studio.address %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:town) %></dt>
+      <dd><pre class="prettyprint"><%= @studio.town %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:county) %></dt>
+      <dd><pre class="prettyprint"><%= @studio.county %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:postcode) %></dt>
+      <dd><pre class="prettyprint"><%= @studio.postcode %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:country) %></dt>
+      <dd><pre class="prettyprint"><%= @studio.country %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:website) %></dt>
+      <dd><pre class="prettyprint"><%= @studio.website %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:email) %></dt>
+      <dd><pre class="prettyprint"><%= @studio.email %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:facebook) %></dt>
+      <dd><pre class="prettyprint"><%= @studio.facebook %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:twitter) %></dt>
+      <dd><pre class="prettyprint"><%= @studio.twitter %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:instagram) %></dt>
+      <dd><pre class="prettyprint"><%= @studio.instagram %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:googleplus) %></dt>
+      <dd><pre class="prettyprint"><%= @studio.googleplus %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:googlebusiness) %></dt>
+      <dd><pre class="prettyprint"><%= @studio.googlebusiness %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @studio.address %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              studios_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_studio_path(@studio), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              studio_path(@studio),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Town:</strong>
-  <%= @studio.town %>
-</p>
-
-<p>
-  <strong>County:</strong>
-  <%= @studio.county %>
-</p>
-
-<p>
-  <strong>Postcode:</strong>
-  <%= @studio.postcode %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @studio.country %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @studio.website %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @studio.email %>
-</p>
-
-<p>
-  <strong>Facebook:</strong>
-  <%= @studio.facebook %>
-</p>
-
-<p>
-  <strong>Twitter:</strong>
-  <%= @studio.twitter %>
-</p>
-
-<p>
-  <strong>Instagram:</strong>
-  <%= @studio.instagram %>
-</p>
-
-<p>
-  <strong>Googleplus:</strong>
-  <%= @studio.googleplus %>
-</p>
-
-<p>
-  <strong>Googlebusiness:</strong>
-  <%= @studio.googlebusiness %>
-</p>
-
-<%= link_to 'Edit', edit_studio_path(@studio) %> |
-<%= link_to 'Back', studios_path %>
