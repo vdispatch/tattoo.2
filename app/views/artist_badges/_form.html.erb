@@ -1,33 +1,28 @@
-<%= form_for(@artist_badge) do |f| %>
-  <% if @artist_badge.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@artist_badge.errors.count, "error") %> prohibited this artist_badge from being saved:</h2>
-
-      <ul>
-      <% @artist_badge.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @artist_badges, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :name, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :description, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :badge_image, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :badge_image, :class => 'text-field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :badge_image %><br>
-    <%= f.text_field :badge_image %>
-  </div>
-  <div class="field">
-    <%= f.label :artist_id %><br>
-    <%= f.text_field :artist_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  artist_badges_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
