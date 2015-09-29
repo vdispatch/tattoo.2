@@ -1,45 +1,46 @@
-<%= form_for(@artist) do |f| %>
-  <% if @artist.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
-
-      <ul>
-      <% @artist.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @artist, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :name, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :facebook, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :facebook, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :twitter, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :twitter, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :instagram, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :instagram, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :googleplus, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :googleplus, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :bio, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :bio, :class => 'text-field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :studio_id %><br>
-    <%= f.text_field :studio_id %>
-  </div>
-  <div class="field">
-    <%= f.label :facebook %><br>
-    <%= f.text_field :facebook %>
-  </div>
-  <div class="field">
-    <%= f.label :twitter %><br>
-    <%= f.text_field :twitter %>
-  </div>
-  <div class="field">
-    <%= f.label :instagram %><br>
-    <%= f.text_field :instagram %>
-  </div>
-  <div class="field">
-    <%= f.label :googleplus %><br>
-    <%= f.text_field :googleplus %>
-  </div>
-  <div class="field">
-    <%= f.label :bio %><br>
-    <%= f.text_area :bio %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  artists_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
