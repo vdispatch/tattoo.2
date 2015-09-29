@@ -3,4 +3,5 @@ class Artist < ActiveRecord::Base
   has_many :techniques
   has_many :styles
   has_many :galleries
+  has_and_belongs_to_many :projects
 end
