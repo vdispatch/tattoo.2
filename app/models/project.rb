@@ -4,4 +4,5 @@ class Project < ActiveRecord::Base
   has_many :artists
   has_many :galleries
   has_and_belongs_to_many :placements
+  has_and_belongs_to_many :artists
 end
