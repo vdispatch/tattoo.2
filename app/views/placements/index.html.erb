@@ -1,27 +1,36 @@
-<h1>Listing placements</h1>
-
-<table>
+<%- model_class = Placement -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Placement %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Body part</th>
-      <th>Project</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:body_part) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @placements.each do |placement| %>
       <tr>
+        <td><%= placement.id %></td>
         <td><%= placement.body_part %></td>
-        <td><%= placement.project %></td>
-        <td><%= link_to 'Show', placement %></td>
-        <td><%= link_to 'Edit', edit_placement_path(placement) %></td>
-        <td><%= link_to 'Destroy', placement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l placement.created_at, format: :long %></td>
+        <td>
+          <%= link_to placement_path(placement), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to placement_path(placement), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Placement', new_placement_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_placement_path,
+            :class => 'btn btn-primary' %>

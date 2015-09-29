@@ -1,6 +1,5 @@
-<h1>Editing placement</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @placement %> |
-<%= link_to 'Back', placements_path %>
+<%- model_class = Placement -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Placement %></h1>
+</div>
+<%= render :partial => 'form' %>
