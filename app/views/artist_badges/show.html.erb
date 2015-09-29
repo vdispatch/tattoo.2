@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @artist_badge.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @artist_badge.description %>
+</p>
+
+<p>
+  <strong>Badge image:</strong>
+  <%= @artist_badge.badge_image %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @artist_badge.artist %>
+</p>
+
+<%= link_to 'Edit', edit_artist_badge_path(@artist_badge) %> |
+<%= link_to 'Back', artist_badges_path %>

@@ -1,0 +1,33 @@
+<%= form_for(@artist_badge) do |f| %>
+  <% if @artist_badge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@artist_badge.errors.count, "error") %> prohibited this artist_badge from being saved:</h2>
+
+      <ul>
+      <% @artist_badge.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :badge_image %><br>
+    <%= f.text_field :badge_image %>
+  </div>
+  <div class="field">
+    <%= f.label :artist_id %><br>
+    <%= f.text_field :artist_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
