@@ -6,4 +6,5 @@ class Artist < ActiveRecord::Base
   has_and_belongs_to_many :projects
   has_and_belongs_to_many :techniques
   has_and_belongs_to_many :styles
+  has_many :artist_badges
 end
