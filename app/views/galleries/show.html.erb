@@ -1,39 +1,32 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Gallery -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Gallery %></h1>
+</div>
 
-<p>
-  <strong>Artist:</strong>
-  <%= @gallery.artist %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:title) %></dt>
+      <dd><pre class="prettyprint"><%= @gallery.title %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:complete_date) %></dt>
+      <dd><pre class="prettyprint"><%= @gallery.complete_date %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @gallery.description %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:time_taken) %></dt>
+      <dd><pre class="prettyprint"><%= @gallery.time_taken %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:image) %></dt>
+      <dd><pre class="prettyprint"><%= @gallery.image %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @gallery.title %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              galleries_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_gallery_path(@gallery), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              gallery_path(@gallery),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Complete date:</strong>
-  <%= @gallery.complete_date %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @gallery.description %>
-</p>
-
-<p>
-  <strong>Time taken:</strong>
-  <%= @gallery.time_taken %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @gallery.image %>
-</p>
-
-<p>
-  <strong>Project:</strong>
-  <%= @gallery.project %>
-</p>
-
-<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
-<%= link_to 'Back', galleries_path %>
