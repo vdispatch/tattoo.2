@@ -5,4 +5,5 @@ class Gallery < ActiveRecord::Base
   has_one :technique
   has_many :styles
   has_and_belongs_to_many :techniques
+  has_and_belongs_to_many :styles
 end
