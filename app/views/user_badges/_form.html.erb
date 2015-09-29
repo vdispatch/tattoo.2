@@ -1,29 +1,28 @@
-<%= form_for(@user_badge) do |f| %>
-  <% if @user_badge.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user_badge.errors.count, "error") %> prohibited this user_badge from being saved:</h2>
-
-      <ul>
-      <% @user_badge.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @user_badges, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :name, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :description, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :badge_image, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :badge_image, :class => 'text-field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :badge_image %><br>
-    <%= f.text_field :badge_image %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  user_badges_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
